@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        goToAddProduct.setOnClickListener {
+        fab.setOnClickListener {
             startActivity(Intent(this, AddProductActivity::class.java))
         }
 

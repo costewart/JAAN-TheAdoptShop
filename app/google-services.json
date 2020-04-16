@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "379774056965",
+    "firebase_url": "https://jaan-adopt.firebaseio.com",
+    "project_id": "jaan-adopt",
+    "storage_bucket": "jaan-adopt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379774056965:android:5bfc2baaed51a7ff52ba6c",
+        "android_client_info": {
+          "package_name": "com.example.jaanadoptapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379774056965-egk5c7v4tnu3ta39ibp7k9ueclr2ri0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8DoR_GgV6W0qcRrdMgqHbTsYJKeAlvkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379774056965-egk5c7v4tnu3ta39ibp7k9ueclr2ri0d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
