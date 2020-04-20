@@ -1,5 +1,6 @@
 package com.example.jaanadoptapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.d
@@ -64,6 +65,10 @@ class Dogs : AppCompatActivity() {
 
         this.adapter = ProductFirestoreRecyclerAdapter(options)
         recycler_view.adapter = adapter
+
+        add_dog.setOnClickListener {
+            startActivity(Intent(this, NewDog::class.java))
+        }
     }
 
     override fun onStart() {

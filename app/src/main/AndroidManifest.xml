@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".AddProductActivity" />
         <activity android:name=".Dogs"/>
+        <activity android:name=".NewDog"/>
     </application>
 
 </manifest>

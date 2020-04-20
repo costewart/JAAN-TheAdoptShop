@@ -50,4 +50,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
+    <Button
+        android:id="@+id/add_dog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#E36A31"
+        android:text="Add New Dog"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
