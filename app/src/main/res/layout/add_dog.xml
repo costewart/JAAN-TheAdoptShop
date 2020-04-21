@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkbox_dogfriendly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -83,12 +83,13 @@
         android:layout_marginRight="24dp"
         android:fontFamily="@font/pragati_narrow"
         android:text="DOG-FRIENDLY"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        app:layout_constraintEnd_toStartOf="@+id/checkbox_vaccinated"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputAge" />
+        app:layout_constraintTop_toBottomOf="@+id/inputAge"
+        android:onClick="onCheckboxClicked"/>
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/checkbox_sterilized"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -99,8 +100,9 @@
         android:text="STERILIZED"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_vaccinated"
+        app:layout_constraintVertical_bias="0.173"
+        android:onClick="onCheckboxClicked"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -150,22 +152,24 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/maleRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pragati_narrow"
-            android:text="MALE" />
+            android:text="MALE"
+            android:onClick="onSexRadioButtonClicked"/>
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/femaleRadio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pragati_narrow"
-            android:text="FEMALE" />
+            android:text="FEMALE"
+            android:onClick="onSexRadioButtonClicked"/>
     </RadioGroup>
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkbox_catfriendly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -175,11 +179,12 @@
         android:fontFamily="@font/pragati_narrow"
         android:text="CAT-FRIENDLY"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox4"
+        app:layout_constraintEnd_toStartOf="@+id/checkbox_sterilized"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_dogfriendly"
+        app:layout_constraintVertical_bias="0.173"
+        android:onClick="onCheckboxClicked"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inputAge"
@@ -197,7 +202,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputBreed" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/checkbox_vaccinated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -206,7 +211,9 @@
         android:fontFamily="@font/pragati_narrow"
         android:text="VACCINATED"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputAge" />
+        app:layout_constraintTop_toBottomOf="@+id/inputAge"
+        android:onClick="onCheckboxClicked"
+        />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -221,25 +228,28 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/canineRadio"
             android:layout_width="89dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pragati_narrow"
-            android:text="CANINE" />
+            android:text="CANINE"
+            android:onClick="onSpeciesRadioButtonClicked"/>
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/felineRadio"
             android:layout_width="89dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pragati_narrow"
-            android:text="FELINE" />
+            android:text="FELINE"
+            android:onClick="onSpeciesRadioButtonClicked"/>
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/otherRadio"
             android:layout_width="89dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pragati_narrow"
-            android:text="OTHER" />
+            android:text="OTHER"
+            android:onClick="onSpeciesRadioButtonClicked"/>
     </RadioGroup>
 
     <TextView

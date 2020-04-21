@@ -1,19 +1,18 @@
 package com.example.jaanadoptapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.add_dog.*
+
 
 class NewDog : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
+    var inputSpecies = ""
+    var inputSex = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +29,12 @@ class NewDog : AppCompatActivity() {
             override fun onClick(v: View?) {
                 val inputName = findViewById<View>(R.id.inputName) as EditText
                 val inputBreed = findViewById<View>(R.id.inputBreed) as EditText
-                //val inputSpecies = findViewById<View>(R.id.inputSpecies) as EditText
                 // eventually should change this to number input
                 val inputAge = findViewById<View>(R.id.inputAge) as EditText
 
 
                 var name = inputName.text.toString().trim()
                 var breed = inputBreed.text.toString().trim()
-                //var species = inputSpecies.text.toString().trim()
                 var age = inputAge.text.toString().trim().toInt()
 
                 d("char:", "name = ${name}")
@@ -46,13 +43,18 @@ class NewDog : AppCompatActivity() {
                     val data = hashMapOf(
                         "name" to name,
                         "breed" to breed,
-                        //"species" to species,
-                        "age" to age
+                        "species" to inputSpecies,
+                        "age" to age,
+                        "sex" to inputSex
                     )
 
                     db.collection("Animals").add(data).addOnSuccessListener { documentReference ->
                         d("char:", "DocumentSnapshot written with ID: ${documentReference.id}")
-                        Toast.makeText(this@NewDog, "Successfully added ${name}.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@NewDog,
+                            "Successfully added ${name}.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }.addOnFailureListener { e ->
                         d("char:", "Error adding document", e)
                     }
@@ -62,6 +64,83 @@ class NewDog : AppCompatActivity() {
                 }
             }
         })
+    }
+
+
+
+    fun onSpeciesRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            val checked = view.isChecked
+
+            when (view.getId()) {
+                R.id.canineRadio ->
+                    if (checked) {
+                        inputSpecies = "Canine"
+                    }
+                R.id.felineRadio ->
+                    if (checked) {
+                        inputSpecies = "Feline"
+                    }
+                R.id.otherRadio ->
+                    if (checked) {
+                        inputSpecies = "Other"
+                    }
+            }
+        }
+    }
+
+    fun onSexRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            val checked = view.isChecked
+
+            when (view.getId()) {
+                R.id.maleRadio ->
+                    if (checked) {
+                        inputSex = "Male"
+                    }
+                R.id.femaleRadio ->
+                    if (checked) {
+                        inputSex = "Female"
+                    }
+            }
+        }
+    }
+
+    fun onCheckboxClicked(view: View) {
+        if (view is CheckBox) {
+            val checked: Boolean = view.isChecked
+
+            when (view.id) {
+                R.id.checkbox_dogfriendly -> {
+                    if (checked) {
+                        d("char:", "dogfirendly checked")
+                    } else {
+                        // Remove the meat
+                    }
+                }
+                R.id.checkbox_catfriendly -> {
+                    if (checked) {
+                        d("char:", "catfirendly checked")
+                    } else {
+                        // I'm lactose intolerant
+                    }
+                }
+                R.id.checkbox_vaccinated -> {
+                    if (checked) {
+                        d("char:", "vaccinated checked")
+                    } else {
+                        // I'm lactose intolerant
+                    }
+                }
+                R.id.checkbox_sterilized -> {
+                    if (checked) {
+                        d("char:", "sterilized checked")
+                    } else {
+                        // I'm lactose intolerant
+                    }
+                }
+            }
+        }
     }
 }
 
