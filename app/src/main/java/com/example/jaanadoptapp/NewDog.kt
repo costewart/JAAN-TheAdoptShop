@@ -13,6 +13,10 @@ class NewDog : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
     var inputSpecies = ""
     var inputSex = ""
+    var inputDogFriendly = false
+    var inputCatFriendly = false
+    var inputVaccinated = false
+    var inputSterilized = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +49,11 @@ class NewDog : AppCompatActivity() {
                         "breed" to breed,
                         "species" to inputSpecies,
                         "age" to age,
-                        "sex" to inputSex
+                        "sex" to inputSex,
+                        "dogfriendly" to inputDogFriendly,
+                        "catfriendly" to inputCatFriendly,
+                        "vaccinated" to inputVaccinated,
+                        "sterilized" to inputSterilized
                     )
 
                     db.collection("Animals").add(data).addOnSuccessListener { documentReference ->
@@ -113,30 +121,22 @@ class NewDog : AppCompatActivity() {
             when (view.id) {
                 R.id.checkbox_dogfriendly -> {
                     if (checked) {
-                        d("char:", "dogfirendly checked")
-                    } else {
-                        // Remove the meat
+                        inputDogFriendly = true
                     }
                 }
                 R.id.checkbox_catfriendly -> {
                     if (checked) {
-                        d("char:", "catfirendly checked")
-                    } else {
-                        // I'm lactose intolerant
+                        inputCatFriendly = true
                     }
                 }
                 R.id.checkbox_vaccinated -> {
                     if (checked) {
-                        d("char:", "vaccinated checked")
-                    } else {
-                        // I'm lactose intolerant
+                        inputVaccinated = true
                     }
                 }
                 R.id.checkbox_sterilized -> {
                     if (checked) {
-                        d("char:", "sterilized checked")
-                    } else {
-                        // I'm lactose intolerant
+                        inputSterilized = true
                     }
                 }
             }

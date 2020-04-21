@@ -6,5 +6,9 @@ class AnimalModel (
     val age: Int = 0,
     val breed: String = "",
     val sex: String = "",
-    val species: String = ""
+    val species: String = "",
+    val dogfriendly: Boolean = false,
+    val catfriendly: Boolean = false,
+    val vaccinated: Boolean = false,
+    val sterilized: Boolean = false
 )
