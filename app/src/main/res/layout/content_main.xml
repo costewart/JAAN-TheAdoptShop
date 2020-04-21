@@ -17,34 +17,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <ImageButton
-        android:background="@null"
-        android:id="@+id/imageButton"
+    <Button
+        android:id="@+id/dog_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:background="#00FFFFFF"
+        android:fadingEdge="none"
+        android:fontFamily="@font/pragati_narrow"
+        android:shadowColor="#00FFFFFF"
+        android:text="DOGS"
+        android:textColor="#464644"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/dogs" />
+        style="?android:attr/borderlessButtonStyle"/>
 
-    <ImageButton
-        android:background="@null"
-        android:id="@+id/imageButton2"
+    <Button
+        android:id="@+id/cat_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/pragati_narrow"
+        android:text="CATS"
+        android:textColor="#464644"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:srcCompat="@drawable/cats" />
+        app:layout_constraintTop_toBottomOf="@+id/dog_page"
+        style="?android:attr/borderlessButtonStyle"/>
 
-    <ImageButton
-        android:background="@null"
-        android:id="@+id/imageButton3"
+    <Button
+        android:id="@+id/other_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/pragati_narrow"
+        android:text="OTHER"
+        android:textColor="#464644"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        app:srcCompat="@drawable/other" />
+        app:layout_constraintTop_toBottomOf="@+id/cat_page"
+        style="?android:attr/borderlessButtonStyle"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
