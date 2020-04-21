@@ -30,14 +30,14 @@ class NewDog : AppCompatActivity() {
             override fun onClick(v: View?) {
                 val inputName = findViewById<View>(R.id.inputName) as EditText
                 val inputBreed = findViewById<View>(R.id.inputBreed) as EditText
-                val inputSpecies = findViewById<View>(R.id.inputSpecies) as EditText
+                //val inputSpecies = findViewById<View>(R.id.inputSpecies) as EditText
                 // eventually should change this to number input
                 val inputAge = findViewById<View>(R.id.inputAge) as EditText
 
 
                 var name = inputName.text.toString().trim()
                 var breed = inputBreed.text.toString().trim()
-                var species = inputSpecies.text.toString().trim()
+                //var species = inputSpecies.text.toString().trim()
                 var age = inputAge.text.toString().trim().toInt()
 
                 d("char:", "name = ${name}")
@@ -46,7 +46,7 @@ class NewDog : AppCompatActivity() {
                     val data = hashMapOf(
                         "name" to name,
                         "breed" to breed,
-                        "species" to species,
+                        //"species" to species,
                         "age" to age
                     )
 
