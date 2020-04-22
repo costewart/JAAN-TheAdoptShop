@@ -18,6 +18,18 @@ class MainActivity : AppCompatActivity() {
             myIntent.putExtra("species", "Canine")
             startActivity(myIntent)
         }
+
+        cat_page.setOnClickListener {
+            var myIntent = Intent(this, Animals::class.java)
+            myIntent.putExtra("species", "Feline")
+            startActivity(myIntent)
+        }
+
+        other_page.setOnClickListener {
+            var myIntent = Intent(this, Animals::class.java)
+            myIntent.putExtra("species", "Other")
+            startActivity(myIntent)
+        }
     }
 
 }
