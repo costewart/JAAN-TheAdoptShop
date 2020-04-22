@@ -1,17 +1,14 @@
 package com.example.jaanadoptapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.add_dog.*
 
 
-class NewDog : AppCompatActivity() {
+class AddAnimal : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
     var inputSpecies = ""
@@ -23,7 +20,7 @@ class NewDog : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_dog)
+        setContentView(R.layout.add_animal)
 
         // TODO: not working yet
 //        backButton.setOnClickListener {
@@ -62,7 +59,7 @@ class NewDog : AppCompatActivity() {
                     db.collection("Animals").add(data).addOnSuccessListener { documentReference ->
                         d("char:", "DocumentSnapshot written with ID: ${documentReference.id}")
                         Toast.makeText(
-                            this@NewDog,
+                            this@AddAnimal,
                             "Successfully added ${name}.",
                             Toast.LENGTH_SHORT
                         ).show()
