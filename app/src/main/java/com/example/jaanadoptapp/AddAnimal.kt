@@ -37,9 +37,9 @@ class AddAnimal : AppCompatActivity() {
                 val inputAge = findViewById<View>(R.id.inputAge) as EditText
 
 
-                var name = inputName.text.toString().trim()
-                var breed = inputBreed.text.toString().trim()
-                var age = inputAge.text.toString().trim().toInt()
+                val name = inputName.text.toString().trim()
+                val breed = inputBreed.text.toString().trim()
+                val age = inputAge.text.toString().trim().toInt()
 
                 d("char:", "name = ${name}")
 

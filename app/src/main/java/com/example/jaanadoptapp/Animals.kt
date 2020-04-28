@@ -15,7 +15,7 @@ import layout.AnimalModel
 
 class Animals : AppCompatActivity() {
 
-    val db = FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +28,22 @@ class Animals : AppCompatActivity() {
         // grab species name based on button pressed, filter data by species
         val speciesName = intent.getStringExtra("species")
 
+        // read data from database, create AnimalModel with relevant info and add to list to display
+        // in RecyclerView
         fun readData() {
             db.collection("Animals").whereEqualTo("species", speciesName)
-                .get()
-                .addOnSuccessListener { result ->
+                .addSnapshotListener { result, e ->
+
+                    // if we failed
+                    if (e != null) {
+                        d("char:", "Listen failed.", e)
+                        return@addSnapshotListener
+                    }
+
                     val list = ArrayList<AnimalModel>()
-                    for (document in result) {
-                        d("exist", "${document.id} => ${document.data}")
+                    val idList = ArrayList<String>()
+                    for (document in result!!) {
+                        d("char:", "${document.id} => ${document.data}")
 
                         val name = document.data["name"].toString()
                         val age = document.data["age"].toString().toInt()
@@ -59,23 +68,23 @@ class Animals : AppCompatActivity() {
                         )
 
                         list.add(animal)
+                        idList.add(document.id)
                     }
 
-                    setUpAnimalRecyclerView(list)
-                }
-                .addOnFailureListener { exception ->
-                    Log.w("noexist", "Error getting documents.", exception)
+                    setUpAnimalRecyclerView(list, idList)
                 }
         }
         readData()
     }
 
 
-    private fun setUpAnimalRecyclerView(emails: List<AnimalModel>) {
+    private fun setUpAnimalRecyclerView(animals: List<AnimalModel>, ids: List<String>): AnimalAdapter {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val animalRecyclerView = findViewById<RecyclerView>(R.id.email_recycler_view)
-        val recyclerAdapter = AnimalAdapter(emails, this)
+        val recyclerAdapter = AnimalAdapter(animals, ids, this)
         animalRecyclerView.layoutManager = layoutManager
         animalRecyclerView.adapter = recyclerAdapter
+        return recyclerAdapter
     }
-}
+
+    }

@@ -14,19 +14,19 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         dog_page.setOnClickListener {
-            var myIntent = Intent(this, Animals::class.java)
+            val myIntent = Intent(this, Animals::class.java)
             myIntent.putExtra("species", "Canine")
             startActivity(myIntent)
         }
 
         cat_page.setOnClickListener {
-            var myIntent = Intent(this, Animals::class.java)
+            val myIntent = Intent(this, Animals::class.java)
             myIntent.putExtra("species", "Feline")
             startActivity(myIntent)
         }
 
         other_page.setOnClickListener {
-            var myIntent = Intent(this, Animals::class.java)
+            val myIntent = Intent(this, Animals::class.java)
             myIntent.putExtra("species", "Other")
             startActivity(myIntent)
         }

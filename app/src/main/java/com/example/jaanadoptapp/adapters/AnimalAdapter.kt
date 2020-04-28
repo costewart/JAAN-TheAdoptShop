@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jaanadoptapp.R
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import layout.AnimalModel
 
 
-class AnimalAdapter(private val animalList: List<AnimalModel>, private val context: Context) : RecyclerView.Adapter<AnimalAdapter.AnimalViewHolder>() {
+class AnimalAdapter(private val animalList: List<AnimalModel>, private val idList: List<String>, private val context: Context) : RecyclerView.Adapter<AnimalAdapter.AnimalViewHolder>() {
 
     override fun onBindViewHolder(animalViewHolder: AnimalViewHolder, index: Int) {
         animalViewHolder.nameTextView.text = animalList[index].name
@@ -32,4 +34,10 @@ class AnimalAdapter(private val animalList: List<AnimalModel>, private val conte
         val speciesTextView: TextView = view.findViewById(R.id.animal_species)
 
     }
+
+    fun getId(position: Int): String {
+        return idList[position]
+    }
+
+
 }
