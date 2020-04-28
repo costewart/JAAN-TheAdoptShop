@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jaanadoptapp.adapters.AnimalAdapter
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.animals.*
 import layout.AnimalModel
 
@@ -70,9 +71,10 @@ class Animals : AppCompatActivity() {
                         list.add(animal)
                         idList.add(document.id)
                     }
-
                     setUpAnimalRecyclerView(list, idList)
                 }
+
+
         }
         readData()
     }
