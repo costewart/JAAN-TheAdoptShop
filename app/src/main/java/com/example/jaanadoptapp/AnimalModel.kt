@@ -10,5 +10,6 @@ class AnimalModel (
     val dogfriendly: Boolean = false,
     val catfriendly: Boolean = false,
     val vaccinated: Boolean = false,
-    val sterilized: Boolean = false
+    val sterilized: Boolean = false,
+    val uri: String
 )

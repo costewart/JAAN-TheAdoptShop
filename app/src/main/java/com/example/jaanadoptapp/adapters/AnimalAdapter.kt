@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jaanadoptapp.R
@@ -14,10 +15,12 @@ import layout.AnimalModel
 
 class AnimalAdapter(private val animalList: List<AnimalModel>, private val idList: List<String>, private val context: Context) : RecyclerView.Adapter<AnimalAdapter.AnimalViewHolder>() {
 
+
+    //var MainImageUploadInfoList = ArrayList<ImageUploadInfo>()
     override fun onBindViewHolder(animalViewHolder: AnimalViewHolder, index: Int) {
         animalViewHolder.nameTextView.text = animalList[index].name
         animalViewHolder.breedTextView.text = animalList[index].breed
-        animalViewHolder.speciesTextView.text = animalList[index].species
+        //animalViewHolder.speciesTextView.text = animalList[index].species
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
@@ -29,9 +32,13 @@ class AnimalAdapter(private val animalList: List<AnimalModel>, private val idLis
     }
 
     inner class AnimalViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        //val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        //val imageNameTextView: TextView = itemView.findViewById(R.id.imageNameTextView)
+
         val nameTextView: TextView = view.findViewById(R.id.animal_name)
         val breedTextView: TextView = view.findViewById(R.id.animal_breed)
-        val speciesTextView: TextView = view.findViewById(R.id.animal_species)
+        //val speciesImageView: TextView = view.findViewById(R.id.profilePicture)
 
     }
 

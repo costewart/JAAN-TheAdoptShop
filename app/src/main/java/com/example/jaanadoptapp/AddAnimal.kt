@@ -1,7 +1,6 @@
 package com.example.jaanadoptapp
 
 import android.app.Activity
-import android.app.Instrumentation
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
@@ -52,6 +51,8 @@ class AddAnimal : AppCompatActivity(), View.OnClickListener {
 
             d("char:", "name = ${name}")
 
+            val uri = uploadFile()
+
             try {
                 val data = hashMapOf(
                     "name" to name,
@@ -62,11 +63,13 @@ class AddAnimal : AppCompatActivity(), View.OnClickListener {
                     "dogfriendly" to inputDogFriendly,
                     "catfriendly" to inputCatFriendly,
                     "vaccinated" to inputVaccinated,
-                    "sterilized" to inputSterilized
+                    "sterilized" to inputSterilized,
+                    "uri" to uri
                 )
 
                 db.collection("Animals").add(data).addOnSuccessListener { documentReference ->
                     d("char:", "DocumentSnapshot written with ID: ${documentReference.id}")
+
                     Toast.makeText(
                         this@AddAnimal,
                         "Successfully added ${name}.",
@@ -75,7 +78,8 @@ class AddAnimal : AppCompatActivity(), View.OnClickListener {
                 }.addOnFailureListener { e ->
                     d("char:", "Error adding document", e)
                 }
-                uploadFile()
+
+                finish()
 
             } catch (e: Exception) {
                 //Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show()
@@ -97,18 +101,23 @@ class AddAnimal : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-    private fun uploadFile() {
+    private fun uploadFile(): String {
+
         if(filePath!= null)
         {
             val progressDialog = ProgressDialog(this)
             progressDialog.setTitle("Uploading...")
             progressDialog.show()
 
-            val imageRef = storageReference!!.child("images/+" + UUID.randomUUID().toString())
+            val pathString = UUID.randomUUID().toString()
+
+            val imageRef = storageReference!!.child("images/$pathString")
+
             imageRef.putFile(filePath!!)
                 .addOnSuccessListener {
                     progressDialog.dismiss()
                     Toast.makeText(applicationContext, "File Uploaded", Toast.LENGTH_SHORT).show()
+
                 }
                 .addOnFailureListener{
                     progressDialog.dismiss()
@@ -118,6 +127,9 @@ class AddAnimal : AppCompatActivity(), View.OnClickListener {
                     val progress = 100.0*taskSnapshot.bytesTransferred/taskSnapshot.totalByteCount
                     progressDialog.setMessage("Uploaded" + progress.toInt() + "%...")
                 }
+            return pathString
+        } else {
+            return ""
         }
     }
 
@@ -137,51 +149,6 @@ class AddAnimal : AppCompatActivity(), View.OnClickListener {
 
         chooseButton.setOnClickListener (this)
         submit_new_dog.setOnClickListener (this)
-
-
-//        submit.setOnClickListener(object : View.OnClickListener {
-//
-//            override fun onClick(v: View?) {
-//                val inputName = findViewById<View>(R.id.inputName) as EditText
-//                val inputBreed = findViewById<View>(R.id.inputBreed) as EditText
-//                // eventually should change this to number input
-//                val inputAge = findViewById<View>(R.id.inputAge) as EditText
-//
-//                val name = inputName.text.toString().trim()
-//                val breed = inputBreed.text.toString().trim()
-//                val age = inputAge.text.toString().trim().toInt()
-//
-//                d("char:", "name = ${name}")
-//
-//                try {
-//                    val data = hashMapOf(
-//                        "name" to name,
-//                        "breed" to breed,
-//                        "species" to inputSpecies,
-//                        "age" to age,
-//                        "sex" to inputSex,
-//                        "dogfriendly" to inputDogFriendly,
-//                        "catfriendly" to inputCatFriendly,
-//                        "vaccinated" to inputVaccinated,
-//                        "sterilized" to inputSterilized
-//                    )
-//
-//                    db.collection("Animals").add(data).addOnSuccessListener { documentReference ->
-//                        d("char:", "DocumentSnapshot written with ID: ${documentReference.id}")
-//                        Toast.makeText(
-//                            this@AddAnimal,
-//                            "Successfully added ${name}.",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }.addOnFailureListener { e ->
-//                        d("char:", "Error adding document", e)
-//                    }
-//                    finish()
-//
-//                } catch (e: Exception) {
-//                    //Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show()
-//                }
-//            }
 
     }
 

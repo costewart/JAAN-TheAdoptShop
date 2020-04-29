@@ -16,7 +16,7 @@ import layout.AnimalModel
 
 class Animals : AppCompatActivity() {
 
-    private val db = FirebaseFirestore.getInstance()
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +55,7 @@ class Animals : AppCompatActivity() {
                         val catfriendly = document.data["catfriendly"].toString().toBoolean()
                         val vaccinated = document.data["vaccinated"].toString().toBoolean()
                         val sterilized = document.data["sterilized"].toString().toBoolean()
+                        val uri = document.data["uri"].toString()
 
                         val animal = AnimalModel(
                             name,
@@ -65,7 +66,8 @@ class Animals : AppCompatActivity() {
                             dogfriendly,
                             catfriendly,
                             vaccinated,
-                            sterilized
+                            sterilized,
+                            uri
                         )
 
                         list.add(animal)
@@ -82,7 +84,7 @@ class Animals : AppCompatActivity() {
 
     private fun setUpAnimalRecyclerView(animals: List<AnimalModel>, ids: List<String>): AnimalAdapter {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val animalRecyclerView = findViewById<RecyclerView>(R.id.email_recycler_view)
+        val animalRecyclerView = findViewById<RecyclerView>(R.id.animal_recycler_view)
         val recyclerAdapter = AnimalAdapter(animals, ids, this)
         animalRecyclerView.layoutManager = layoutManager
         animalRecyclerView.adapter = recyclerAdapter

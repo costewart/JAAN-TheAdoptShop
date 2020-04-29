@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="100dp"
     android:background="#FFECECEC"
     android:orientation="horizontal"
     android:weightSum="1">
 
     <LinearLayout
-        android:layout_width="162dp"
+        android:layout_width="47dp"
         android:layout_height="match_parent"
         android:layout_weight="0.2"
         android:orientation="horizontal"
@@ -19,7 +19,7 @@
             android:id="@+id/deleteButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:background="@color/colorPrimary"
             android:text="x"
             android:textColor="#FFFFFF"
@@ -27,7 +27,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="0.2"
@@ -47,16 +47,20 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.8"
-        android:orientation="horizontal">
+<!--    <LinearLayout-->
+<!--        android:layout_width="229dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="0.2"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingLeft="8dp"-->
+<!--        android:paddingTop="15dp"-->
+<!--        android:paddingRight="8dp">-->
 
-        <TextView
-            android:id="@+id/animal_species"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center" />
-    </LinearLayout>
+<!--        <ImageView-->
+<!--            android:id="@+id/profilePicture"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
+
+<!--    </LinearLayout>-->
+
 </LinearLayout>
