@@ -18,9 +18,8 @@ import layout.AnimalModel
 
 class AnimalAdapter(private val animalList: List<AnimalModel>, private val idList: List<String>, private val context: Context) : RecyclerView.Adapter<AnimalAdapter.AnimalViewHolder>() {
 
-    val storageReference = FirebaseStorage.getInstance()
+    private val storageReference = FirebaseStorage.getInstance()
 
-    //var MainImageUploadInfoList = ArrayList<ImageUploadInfo>()
     override fun onBindViewHolder(animalViewHolder: AnimalViewHolder, index: Int) {
         animalViewHolder.nameTextView.text = animalList[index].name
         animalViewHolder.breedTextView.text = animalList[index].breed

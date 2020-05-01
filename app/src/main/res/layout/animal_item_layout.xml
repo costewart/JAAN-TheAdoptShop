@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="250dp"
     android:background="#FFECECEC"
     android:orientation="horizontal"
     android:weightSum="1">
 
     <LinearLayout
-        android:layout_width="47dp"
-        android:layout_height="match_parent"
+        android:layout_width="86dp"
+        android:layout_height="77dp"
         android:layout_weight="0.2"
         android:orientation="horizontal"
         android:paddingLeft="8dp"
@@ -17,8 +17,8 @@
 
         <Button
             android:id="@+id/deleteButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="38dp"
+            android:layout_height="29dp"
             android:layout_weight="5"
             android:background="@color/colorPrimary"
             android:text="x"
@@ -27,7 +27,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="130dp"
+        android:layout_width="136dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="0.2"
@@ -36,20 +36,21 @@
 
         <TextView
             android:id="@+id/animal_name"
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/animal_breed"
-            android:layout_width="148dp"
-            android:layout_height="30dp" />
+            android:layout_width="113dp"
+            android:layout_height="31dp" />
 
-        <ImageView
-            android:id="@+id/profilePicture"
-            android:layout_width="150dp"
-            android:layout_height="39dp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="184dp"
+        android:layout_height="182dp" />
 
 </LinearLayout>

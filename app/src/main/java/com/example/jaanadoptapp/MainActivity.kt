@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         dog_page.setOnClickListener {
-            val myIntent = Intent(this, Animals::class.java)
+            val myIntent = Intent(this, AnimalsTwo::class.java)
             myIntent.putExtra("species", "Canine")
             startActivity(myIntent)
         }

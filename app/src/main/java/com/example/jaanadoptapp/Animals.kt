@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.d
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jaanadoptapp.adapters.AnimalAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.animals.*
@@ -22,7 +24,8 @@ class Animals : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.animals)
 
-        add_dog.setOnClickListener {
+        val mFab = findViewById<FloatingActionButton>(R.id.fab)
+        mFab.setOnClickListener {
             startActivity(Intent(this, AddAnimal::class.java))
         }
 

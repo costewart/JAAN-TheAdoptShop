@@ -115,7 +115,9 @@ class AddAnimal : AppCompatActivity(), View.OnClickListener {
 
             imageRef.putFile(filePath!!)
                 .addOnSuccessListener {
-                    progressDialog.dismiss()
+                    try{progressDialog.dismiss()}catch(e: Exception) {
+
+                    }
                     Toast.makeText(applicationContext, "File Uploaded", Toast.LENGTH_SHORT).show()
 
                 }
