@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.jaanadoptapp.adapters.AnimAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,7 +23,10 @@ class AnimalsTwo: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.animals)
 
-        setUpRecyclerView()
+        // grab species name based on button pressed, filter data by species
+        val speciesName = intent.getStringExtra("species")
+
+        setUpRecyclerView(speciesName)
 
         val mFab = findViewById<FloatingActionButton>(R.id.fab)
         mFab.setOnClickListener {
@@ -30,8 +34,8 @@ class AnimalsTwo: AppCompatActivity() {
         }
     }
 
-    private fun setUpRecyclerView() {
-        val query = animalRef.orderBy("breed", Query.Direction.DESCENDING)
+    private fun setUpRecyclerView(species: String) {
+        val query = animalRef.whereEqualTo("species", species).orderBy("name", Query.Direction.ASCENDING)
 
         val options = FirestoreRecyclerOptions.Builder<AnimalModel>().setQuery(query, AnimalModel::class.java).build()
 

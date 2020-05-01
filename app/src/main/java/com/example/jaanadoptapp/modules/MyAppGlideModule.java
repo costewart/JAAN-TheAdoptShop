@@ -1,4 +1,4 @@
-package com.example.jaanadoptapp;
+package com.example.jaanadoptapp.modules;
 
 import android.content.Context;
 

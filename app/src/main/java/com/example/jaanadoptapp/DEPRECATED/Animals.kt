@@ -1,18 +1,15 @@
-package com.example.jaanadoptapp
+package com.example.jaanadoptapp.DEPRECATED
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.Log.d
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.jaanadoptapp.adapters.AnimalAdapter
+import com.example.jaanadoptapp.AddAnimal
+import com.example.jaanadoptapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.animals.*
 import layout.AnimalModel
 
 
@@ -88,7 +85,8 @@ class Animals : AppCompatActivity() {
     private fun setUpAnimalRecyclerView(animals: List<AnimalModel>, ids: List<String>): AnimalAdapter {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val animalRecyclerView = findViewById<RecyclerView>(R.id.animal_recycler_view)
-        val recyclerAdapter = AnimalAdapter(animals, ids, this)
+        val recyclerAdapter =
+            AnimalAdapter(animals, ids, this)
         animalRecyclerView.layoutManager = layoutManager
         animalRecyclerView.adapter = recyclerAdapter
         return recyclerAdapter

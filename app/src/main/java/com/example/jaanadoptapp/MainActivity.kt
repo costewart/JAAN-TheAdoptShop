@@ -20,13 +20,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         cat_page.setOnClickListener {
-            val myIntent = Intent(this, Animals::class.java)
+            val myIntent = Intent(this, AnimalsTwo::class.java)
             myIntent.putExtra("species", "Feline")
             startActivity(myIntent)
         }
 
         other_page.setOnClickListener {
-            val myIntent = Intent(this, Animals::class.java)
+            val myIntent = Intent(this, AnimalsTwo::class.java)
             myIntent.putExtra("species", "Other")
             startActivity(myIntent)
         }
