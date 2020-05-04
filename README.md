@@ -1,5 +1,5 @@
-# Jakarta Animal Aid Network - Adoption App
-The JAAN Adopt App serves as a platform for the non-profit animal rescue organization to effectively present adoptable pets, promoting the rehoming of rescued animals in Jakarta, Indonesia.
+# Jakarta Animal Aid Network - The Adopt Shop
+The Adopt Shop serves as a platform for the non-profit animal rescue organization JAAN to effectively present adoptable pets, promoting the rehoming of rescued animals in Jakarta, Indonesia.
 
 ## Table of Contents:
 * [General info](#general-info)
