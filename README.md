@@ -23,8 +23,6 @@ Project is created with:
 * Android Studio
 	
 ## Setup
-To run this project, install it locally using npm:
-
 ```
-$ Please install on your Android device from the Playstore
+$ Please install on your Android device from the Playstore // Will update instructions to pull code from GitHub soon.
 ```
